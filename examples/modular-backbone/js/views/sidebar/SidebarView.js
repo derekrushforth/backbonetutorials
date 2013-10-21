@@ -26,9 +26,13 @@ define([
         ads: [backbone_ad, require_ad]
       };
 
-      var compiledTemplate = _.template( sidebarTemplate, data );
+      $.each(data.ads, function(key,value) {
+          var compiledTemplate = _.template( sidebarTemplate, value );
+          $(".sidebar").append(compiledTemplate);
+      });
+
     
-      $(".sidebar").append(compiledTemplate);
+
     }
 
   });
